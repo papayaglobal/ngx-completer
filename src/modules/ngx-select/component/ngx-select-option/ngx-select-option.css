@@ -1,0 +1,14 @@
+.ngx-option-text {
+    display: block;
+    line-height: 35px;
+    padding: 0 15px;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ngx-option-text:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
