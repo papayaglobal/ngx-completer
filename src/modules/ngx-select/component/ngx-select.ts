@@ -1,7 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
-import { CdkConnectedOverlay } from '@angular/cdk/overlay';
-import { CdkOverlayOrigin } from '@angular/cdk/overlay';
+import { CdkConnectedOverlay, CdkOverlayOrigin } from '@angular/cdk/overlay';
 import {
     DOWN_ARROW,
     END,
@@ -34,13 +33,13 @@ import {
     ContentChild
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import { take } from 'rxjs/operators/take';
 import { switchMap } from 'rxjs/operators/switchMap';
 import { startWith } from 'rxjs/operators/startWith';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { filter } from 'rxjs/operators/filter';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 import { defer } from 'rxjs/Observable/defer';
 import { merge } from 'rxjs/Observable/merge';
 
@@ -519,7 +518,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
 
     /** Gets the index of the provided option in the option list. */
     private getOptionIndex(option: NgxSelectOptionComponent): number | undefined {
-        return this.options.reduce((result: number, current: NgxSelectOptionComponent, index: number) => {
+        return this.options.reduce((result: number | undefined, current: NgxSelectOptionComponent, index: number) => {
             return result === undefined ? (option === current ? index : undefined) : result;
         }, undefined);
     }
