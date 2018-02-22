@@ -45,13 +45,13 @@ import { merge } from 'rxjs/Observable/merge';
 
 import { isNill, noop } from '../globals';
 import { NgxSelectModel } from './ngx-select-model';
-import { NgxOptionSelectionChange, NgxSelectOptionComponent } from './ngx-select-option/ngx-select-option';
+import { NgxOptionSelectionChange, NgxSelectOptionComponent } from './ngx-select-option/ngx-select-option.component';
 import { NgxSelectTemplate } from './ngx-select-template';
 
 @Component({
     selector: 'ngx-select',
-    templateUrl: 'ngx-select.html',
-    styleUrls: ['ngx-select.css'],
+    templateUrl: 'ngx-select.component.html',
+    styleUrls: ['ngx-select.component.css'],
     encapsulation: ViewEncapsulation.None,
     preserveWhitespaces: false,
     changeDetection: ChangeDetectionStrategy.OnPush

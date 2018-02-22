@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 
+
 /**
  * Add here external dependencies that actually you use.
  *
@@ -83,7 +84,6 @@ export default {
         resolve(),
         sourcemaps()
     ],
-    onwarn: () => { return },
     output: {
         format: 'umd',
         name: 'ngx.selectBox',
@@ -91,5 +91,6 @@ export default {
         sourcemap: true,
         exports: 'named',
         amd: { id: 'ngx-select-box' }
-    }
+    },
+    onwarn: () => { return },
 }
