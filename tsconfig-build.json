@@ -7,7 +7,7 @@
                 "node_modules/@angular/*"
             ]
         },
-        "outDir": "dist",
+        "outDir": "../dist",
         "declaration": true,
         "strict": true,
         "strictPropertyInitialization": false,
@@ -19,7 +19,12 @@
             "dom"
         ],
         "skipLibCheck": true,
-        "types": [],
+        "types": [
+            "node"
+        ],
+        "typeRoots": [
+            "node_modules/@types/"
+        ],
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "sourceMap": true,
@@ -27,7 +32,7 @@
     },
     "files": [
         "public_api.ts",
-        "node_modules/zone.js/dist/zone.js.d.ts"
+        "../node_modules/zone.js/dist/zone.js.d.ts"
     ],
     "angularCompilerOptions": {
         "skipTemplateCodegen": true,
