@@ -40,8 +40,8 @@ import { switchMap } from 'rxjs/operators/switchMap';
 import { startWith } from 'rxjs/operators/startWith';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { filter } from 'rxjs/operators/filter';
-import { defer } from 'rxjs/Observable/defer';
-import { merge } from 'rxjs/Observable/merge';
+import { defer } from 'rxjs/observable/defer';
+import { merge } from 'rxjs/observable/merge';
 
 import { isNill, noop } from '../globals';
 import { NgxSelectModel } from './ngx-select-model';

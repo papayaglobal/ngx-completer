@@ -68,8 +68,8 @@ const globals = {
     'rxjs/Subject': 'Rx',
     'rxjs/Subscription': 'Rx',
 
-    'rxjs/Observable/defer': 'Rx.Observable',
-    'rxjs/Observable/merge': 'Rx.Observable',
+    'rxjs/observable/defer': 'Rx.Observable.prototype',
+    'rxjs/observable/merge': 'Rx.Observable.prototype',
 
     'rxjs/operators/take': 'Rx.Observable.prototype',
     'rxjs/operators/switchMap': 'Rx.Observable.prototype',

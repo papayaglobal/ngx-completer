@@ -1,0 +1,240 @@
+<script src="../boot.ts"></script><h1 style="margin-top: 1em;"
+                                      class="page">Ngx Select</h1>
+
+
+<h3>Simple select</h3>
+<p>Simple select (try keyboard arrows & type first letters to search)</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select [(ngModel)]="selectedCountry1">
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry1?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry1?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3>Simple select</h3>
+<p>Placeholder</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country"
+                            [(ngModel)]="selectedCountry2">
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry2?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry2?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3>Simple select</h3>
+<p>Deselect option</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country"
+                            [(ngModel)]="selectedCountry3">
+                    <ngx-select-option [value]="null">-None-</ngx-select-option>
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry3?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry3?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3>Simple select</h3>
+<p>SelectionChange event (look console). Emits <code>previous</code> and <code>new</code> selected value</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country"
+                            (selectionChange)="onSelectionChange($event)"
+                            [(ngModel)]="selectedCountry4">
+                    <ngx-select-option [value]="null">-None-</ngx-select-option>
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry4?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry4?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Simple select</h3>
+<p>Change text view (Need refactoring)</p>
+<p>
+    <label><input type="radio" name="textTransform"> Normal</label>
+    <br/>
+    <label><input type="radio" name="textTransform"> Uppercase</label>
+    <br/>
+    <label><input type="radio" name="textTransform"> Lowercase</label>
+    <br/>
+    <label><input type="radio" name="textTransform"> Capitalize</label>
+</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country"
+                            [(ngModel)]="selectedCountry5">
+                    <ngx-select-option [value]="null">-None-</ngx-select-option>
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry5?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry5?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Simple select</h3>
+<p>Template</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country"
+                            [(ngModel)]="selectedCountry6">
+                    <ngx-select-option [value]="null">-None-</ngx-select-option>
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        <label>{{item.name}} ({{item.code}})</label>
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry6?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry6?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Simple select</h3>
+<p>Template with images</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country"
+                            [(ngModel)]="selectedCountry7">
+                    <ngx-select-template>
+                        <label><img [src]="selectedCountry7?.flag"/> {{selectedCountry7?.name}}</label>
+                    </ngx-select-template>
+                    <ngx-select-option [value]="null">-None-</ngx-select-option>
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        <label><img [src]="item.flag"/> {{item.name}}</label>
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry7?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry7?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3>Simple select</h3>
+<p>Other controls to change select behaviour</p>
+<p>
+    <button (click)="ngxSelectForControls.toggle()">Toggle (need css)</button>
+    <button (click)="ngxSelectForControls.focus()">Focus</button>
+    <br/>
+    <label><input type="checkbox" [(ngModel)]="closeOnOutsideClick"> Close on outside click</label>
+    <br/>
+    <label><input type="checkbox" [(ngModel)]="showArrowButton"> Show arrow button</label>
+    <br/>
+    <label><input type="checkbox" [(ngModel)]="rotateArrowButton"> Rotate arrow on open/close</label>
+    <br/>
+    <label><input type="input" [(ngModel)]="width"> Select Width</label>
+    <br/>
+    <label><input type="input" [(ngModel)]="height"> Dropdown height</label>
+</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select #ngxSelectForControls
+                            placeholder="Select Country"
+                            [showArrow]="showArrowButton"
+                            [rotateArrow]="rotateArrowButton"
+                            [closeOutsideClick]="closeOnOutsideClick"
+                            [width]="width"
+                            [height]="height"
+                            [(ngModel)]="selectedCountry99">
+                    <ngx-select-option [value]="null">-None-</ngx-select-option>
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry99?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry99?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Native Html Select</h3>
+<p></p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-3">
+                <select>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p style="margin-bottom: 10em;"></p>
