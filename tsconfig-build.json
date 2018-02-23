@@ -20,7 +20,7 @@
         ],
         "skipLibCheck": true,
         "types": [
-            "node"
+        "node"
         ],
         "typeRoots": [
             "node_modules/@types/"
