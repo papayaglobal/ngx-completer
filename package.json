@@ -2,7 +2,7 @@
   "name": "ngx-select-box",
   "private": true,
   "version": "1.0.0-beta.1",
-  "description": "Build an Angular library compatible with AoT compilation and Tree shaking like an official package",
+  "description": "Angular 5 select component",
   "main": "./bundles/ngx-select-box.umd.js",
   "module": "./esm5/ngx-select-box.js",
   "es2015": "./esm2015/ngx-select-box.js",
@@ -17,7 +17,24 @@
     "start": "cross-env webpack-dev-server --inline --progress --port 8080"
   },
   "typings": "./ngx-select-box.d.ts",
-  "author": "",
+  "author": {
+    "name": "papayaglobal",
+    "url": "https://github.com/papayaglobal"
+  },
+  "contributors": [
+    {
+      "name": "Ivan Prytsko",
+      "email": "seekafter.pritko@gmail.com"
+    },
+    {
+      "name": "Alexey Garakh",
+      "email": "liohaharakh@gmail.com"
+    },
+    {
+      "name": "Ofer Herman",
+      "email": "oferhe@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/papayaglobal/ngx-select-box.git"
