@@ -1,6 +1,7 @@
 import sourcemaps from 'rollup-plugin-sourcemaps';
 import license from 'rollup-plugin-license';
 
+
 const path = require('path');
 
 export default {
@@ -19,5 +20,5 @@ export default {
             }
         })
     ],
-    onwarn: () => { return }
+    onwarn: () => {return}
 }

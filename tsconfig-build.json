@@ -1,39 +1,44 @@
 {
-  "compilerOptions": {
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "@angular/*": [
-        "node_modules/@angular/*"
-      ]
+    "compilerOptions": {
+        "rootDir": ".",
+        "baseUrl": ".",
+        "paths": {
+            "@angular/*": [
+                "node_modules/@angular/*"
+            ]
+        },
+        "outDir": "../dist",
+        "declaration": true,
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "moduleResolution": "node",
+        "module": "es2015",
+        "target": "es2015",
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "skipLibCheck": true,
+        "types": [
+        "node"
+        ],
+        "typeRoots": [
+            "node_modules/@types/"
+        ],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "inlineSources": true
     },
-    "outDir": "dist",
-    "declaration": true,
-    "strict": true,
-    "strictPropertyInitialization": false,
-    "moduleResolution": "node",
-    "module": "es2015",
-    "target": "es2015",
-    "lib": [
-      "es2015",
-      "dom"
+    "files": [
+        "public_api.ts",
+        "../node_modules/zone.js/dist/zone.js.d.ts"
     ],
-    "skipLibCheck": true,
-    "types": [],
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "sourceMap": true,
-    "inlineSources": true
-  },
-  "files": [
-    "public_api.ts",
-    "node_modules/zone.js/dist/zone.js.d.ts"
-  ],
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    "annotateForClosureCompiler": true,
-    "strictMetadataEmit": true,
-    "flatModuleOutFile": "ngx-select-box.js",
-    "flatModuleId": "ngx-select-box"
-  }
+    "angularCompilerOptions": {
+        "skipTemplateCodegen": true,
+        "annotateForClosureCompiler": true,
+        "strictMetadataEmit": true,
+        "flatModuleOutFile": "ngx-select-box.js",
+        "flatModuleId": "ngx-select-box"
+    }
 }

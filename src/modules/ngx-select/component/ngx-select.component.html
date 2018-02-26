@@ -1,0 +1,39 @@
+<div cdk-overlay-origin
+     class="ngx-select-trigger"
+     [style.width]="width"
+     [attr.tabindex]="tabIndex"
+     (click)="toggle()"
+     #origin="cdkOverlayOrigin">
+    <div class="ngx-select-value" [ngSwitch]="isEmpty">
+        <span class="ngx-select-placeholder" *ngSwitchCase="true">{{placeholder || '\u00A0'}}</span>
+        <span class="ngx-select-value-text"
+              [ngClass]="textTransform"
+              *ngSwitchCase="false"
+              [ngSwitch]="!!ngxSelectTemplate">
+             <span *ngSwitchDefault>{{displayValue}}</span>
+            <ng-content select="ngx-select-template" *ngSwitchCase="true"></ng-content>
+        </span>
+    </div>
+
+    <div *ngIf="showArrow" class="ngx-select-arrow-wrapper">
+        <div class="ngx-select-arrow" [ngClass]="[arrowIcon,  rotateIcon()]"></div>
+    </div>
+</div>
+
+<ng-template cdk-connected-overlay
+             hasBackdrop
+             backdropClass="cdk-overlay-transparent-backdrop"
+             [origin]="origin"
+             [open]="isPanelOpen"
+             (backdropClick)="closeOutsideClick && close()"
+             (detach)="close()"
+             (attach)="onOverlayAttached()">
+    <div #selectPanel
+         class="ngx-select-panel">
+        <div #selectContent
+             class="ngx-select-content"
+             [ngClass]="textTransform">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</ng-template>
