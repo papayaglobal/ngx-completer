@@ -86,7 +86,6 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     height: 100%;
-    max-height: 256px;
     min-width: 100%;
 
     &:not([class*=mat-elevation-z]) {
@@ -138,6 +137,7 @@ ngx-select-option.ngx-active .ngx-option-text {
         position: absolute;
         pointer-events: auto;
         box-sizing: border-box;
-        z-index: 1000
+        z-index: 1000;
+        height: 256px;
     }
 }
