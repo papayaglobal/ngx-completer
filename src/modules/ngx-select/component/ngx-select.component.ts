@@ -30,7 +30,8 @@ import {
     HostListener,
     ViewChild,
     ElementRef,
-    ContentChild
+    ContentChild,
+    HostBinding
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
@@ -69,7 +70,6 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @Input() public capitalize: boolean = false;
     // @Input() public startCase: boolean = false; // TODO: needs lodash
     @Input() public isPanelOpen: boolean = false;
-    @Input() public disabled: boolean = false; // TODO: complete disabled + also for options
     @Input() public showArrow: boolean = true;
     @Input() public rotateArrow: boolean = true;
     @Input() public closeOutsideClick: boolean = true;
@@ -107,6 +107,8 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @Output() public readonly selectionChange: EventEmitter<NgxSelectModel> = new EventEmitter<NgxSelectModel>();
     @Output() public readonly opened: EventEmitter<void> = new EventEmitter<void>();
     @Output() public readonly closed: EventEmitter<void> = new EventEmitter<void>();
+
+    @HostBinding('class.ngx-disabled') @Input() disabled: boolean = false;
 
     /** Check is anything selected. */
     public get isEmpty(): boolean {

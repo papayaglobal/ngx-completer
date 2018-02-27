@@ -34,9 +34,10 @@ export class NgxOptionSelectionChange {
 })
 export class NgxSelectOptionComponent {
     @Input() public value: any;
-    @Input() public disabled: boolean = false;
 
     @Output() public onSelectionChange = new EventEmitter<NgxOptionSelectionChange>();
+
+    @HostBinding('class.ngx-disabled') @Input() disabled: boolean = false;
 
     @HostBinding('class.ngx-selected')
     public get selected(): boolean {

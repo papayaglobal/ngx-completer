@@ -220,6 +220,34 @@
     </div>
 </div>
 
+<h3>Simple select</h3>
+<p>Disabling</p>
+<p>
+    <button (click)="toggleDisablingSelect()">Disable Select</button>
+    <button (click)="toggleDisablingOption()">Disable Option</button>
+</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country"
+                            [(ngModel)]="selectedCountry5"
+                            [disabled]="disabled">
+                    <ngx-select-option [value]="null">-None-</ngx-select-option>
+                    <ngx-select-option *ngFor="let item of countries" [value]="item" [disabled]="item.disabled">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry7?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry7?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <h3>Native Html Select</h3>
 <p></p>
 

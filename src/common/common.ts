@@ -18,4 +18,4 @@ export function parseNumber(value: string | null): number {
 
 export function compare(attr1: any, attr2: any): boolean {
     return attr1 === attr2;
-};
+}
