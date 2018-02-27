@@ -15,6 +15,18 @@
     outline: none;
     box-shadow: none;
 
+    &:hover, &:focus, &:active {
+        border: 1px solid #2883D2;
+
+        .ngx-select-arrow-wrapper {
+            border-left: 1px solid #2883D2;
+
+            .ngx-select-arrow {
+                color: #2883D2;
+            }
+        }
+    }
+
     .ngx-select-value {
         display: table-cell;
         max-width: 0;
@@ -44,6 +56,7 @@
         z-index: 1;
         border-left: 1px solid #d8d8d8;
         border-radius: 0 4px 4px 0;
+        transition: border-color ease-in-out 0.15s;
 
         .ngx-select-arrow {
             width: 0;
@@ -53,6 +66,7 @@
             border-top: 5px solid;
             margin: 0 4px;
             font-size: 8px;
+            transition: border-color ease-in-out 0.15s;
             vertical-align: text-top;
             color: #8b8995;
 
@@ -106,7 +120,7 @@ ngx-select-option.ngx-active .ngx-option-text {
 ====================================*/
 .cdk-overlay-container {
     position: fixed;
-    z-index: 1000;
+    z-index: 5000;
     pointer-events: none;
     top: 0;
     left: 0;
