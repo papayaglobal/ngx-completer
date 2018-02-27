@@ -12,8 +12,7 @@ import {
 } from '@angular/core';
 
 /**
- * Option IDs need to be unique across components, so this counter exists outside of
- * the component definition.
+ * To set unique Id for component
  */
 let _uniqueIdCounter = 0;
 
