@@ -223,8 +223,8 @@
 <h3>Simple select</h3>
 <p>Disabling</p>
 <p>
-    <button (click)="toggleDisablingSelect()">Disable Select</button>
-    <button (click)="toggleDisablingOption()">Disable Option</button>
+    <button (click)="disabled = !disabled">Disable Select</button>
+    <button (click)="optionDisabled = !optionDisabled">Disable 4th Option</button>
 </p>
 
 <div class="card">
@@ -235,7 +235,7 @@
                             [(ngModel)]="selectedCountry8"
                             [disabled]="disabled">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
-                    <ngx-select-option *ngFor="let item of countries" [value]="item" [disabled]="item.disabled">
+                    <ngx-select-option *ngFor="let item of countries; let i = index" [value]="item" [disabled]="i === 3 && optionDisabled">
                         {{item.name}}
                     </ngx-select-option>
                 </ngx-select>

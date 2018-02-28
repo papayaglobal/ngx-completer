@@ -15,16 +15,9 @@ export class NgxSelectDemo {
     public height: string = '200px';
     public width: string = '200px';
     public disabled: boolean = false;
+    public optionDisabled: boolean = false;
 
     public onSelectionChange(event: NgxSelectModel) {
         console.warn('selectionChange event: ', event);
-    }
-
-    public toggleDisablingSelect() {
-        this.disabled = !this.disabled;
-    }
-
-    public toggleDisablingOption() {
-        this.countries[3].disabled = !this.countries[3].disabled;
     }
 }
