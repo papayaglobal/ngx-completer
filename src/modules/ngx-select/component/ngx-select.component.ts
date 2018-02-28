@@ -73,7 +73,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @Input() public showArrow: boolean = true;
     @Input() public rotateArrow: boolean = true;
     @Input() public closeOutsideClick: boolean = true;
-    @Input() public arrowIcon: string = '';
+    @Input() public arrowIcon: string = 'ngx-arrow-icon';
     @Input() public placeholder: string;
     @Input() public width: string;
     @Input() public height: string;
