@@ -5,28 +5,20 @@
 .ngx-select-trigger {
     display: inline-table;
     cursor: pointer;
-    position: relative;
-    box-sizing: border-box;
     width: 250px;
     height: 35px;
-    line-height: 1.5;
     font-size: 15px;
-    color: #434246;
     border: 1px solid #c1c1c2;
     border-radius: 4px;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    background-color: transparent;
-    outline: none;
-    box-shadow: none;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    outline: 0;
 
-    .ngx-disabled & {
-        cursor: default;
-        background-color: #f5f5f5;
-    }
-
+    .ngx-disabled &,
     .ngx-disabled &:hover,
     .ngx-disabled &:focus,
     .ngx-disabled &:active {
+        cursor: default;
+        background-color: #f5f5f5;
         border: 1px solid #c1c1c2;
 
         .ngx-select-arrow-wrapper {
@@ -38,7 +30,9 @@
         }
     }
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
         border: 1px solid #2883D2;
 
         .ngx-select-arrow-wrapper {
@@ -52,7 +46,6 @@
 
     .ngx-select-value {
         display: table-cell;
-        max-width: 0;
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
