@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from "./app-cmp";
 import { routing } from "./app.routing";
 import { NgxSelectDemo } from "./ngx-select-demo/ngx-select-demo";
-import { NgxSelectModule } from "../dist";
+import { NgxSelectModule } from "../src/modules/ngx-select";
 
 @NgModule({
   bootstrap: [AppComponent],

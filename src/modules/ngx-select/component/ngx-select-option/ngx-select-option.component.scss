@@ -6,9 +6,9 @@
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
-}
 
-.ngx-option-text:hover {
-    background-color: lightgray;
-    cursor: pointer;
+    &:hover {
+        background-color: lightgray;
+        cursor: pointer;
+    }
 }

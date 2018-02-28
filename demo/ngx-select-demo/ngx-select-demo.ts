@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { NgxSelectModel } from "../../dist";
+import { NgxSelectModel } from "../../src/modules/ngx-select";
 
 @Component({
     selector: 'ngx-select-demo',
@@ -14,8 +14,17 @@ export class NgxSelectDemo {
     public closeOnOutsideClick: boolean = true;
     public height: string = '200px';
     public width: string = '200px';
+    public disabled: boolean = false;
 
     public onSelectionChange(event: NgxSelectModel) {
         console.warn('selectionChange event: ', event);
+    }
+
+    public toggleDisablingSelect() {
+        this.disabled = !this.disabled;
+    }
+
+    public toggleDisablingOption() {
+        this.countries[3].disabled = !this.countries[3].disabled;
     }
 }

@@ -180,7 +180,7 @@
 <h3>Simple select</h3>
 <p>Other controls to change select behaviour</p>
 <p>
-    <button (click)="ngxSelectForControls.toggle()">Toggle (need css)</button>
+    <button (click)="ngxSelectForControls.toggle()">Toggle</button>
     <button (click)="ngxSelectForControls.focus()">Focus</button>
     <br/>
     <label><input type="checkbox" [(ngModel)]="closeOnOutsideClick"> Close on outside click</label>
@@ -215,6 +215,34 @@
             <div class="col-6">
                 <p class="form-control-static">Code: <b>{{selectedCountry99?.code || ''}}</b></p>
                 <p class="form-control-static">Country: <b>{{selectedCountry99?.name || ''}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Simple select</h3>
+<p>Disabling</p>
+<p>
+    <button (click)="toggleDisablingSelect()">Disable Select</button>
+    <button (click)="toggleDisablingOption()">Disable Option</button>
+</p>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country"
+                            [(ngModel)]="selectedCountry8"
+                            [disabled]="disabled">
+                    <ngx-select-option [value]="null">-None-</ngx-select-option>
+                    <ngx-select-option *ngFor="let item of countries" [value]="item" [disabled]="item.disabled">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code: <b>{{selectedCountry8?.code || ''}}</b></p>
+                <p class="form-control-static">Country: <b>{{selectedCountry8?.name || ''}}</b></p>
             </div>
         </div>
     </div>
