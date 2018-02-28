@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { NgxSelectModel } from "../../dist";
+import { NgxSelectModel } from "../../src/modules/ngx-select";
 
 @Component({
     selector: 'ngx-select-demo',
