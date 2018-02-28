@@ -55,7 +55,10 @@ import { NgxSelectTemplate } from './ngx-select-template';
     styleUrls: ['ngx-select.component.scss'],
     encapsulation: ViewEncapsulation.None,
     preserveWhitespaces: false,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        'class': 'ngx-select'
+    }
 })
 export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValueAccessor, OnDestroy {
     @ViewChild('selectPanel') public selectPanel: ElementRef;
@@ -78,6 +81,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @Input() public width: string;
     @Input() public height: string;
 
+    @HostBinding('attr.tabindex')
     @Input()
     public get tabIndex(): number {
         if (this.disabled) {
