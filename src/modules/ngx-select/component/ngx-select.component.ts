@@ -68,18 +68,20 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @ContentChild(NgxSelectTemplate) public ngxSelectTemplate: NgxSelectTemplate;
     @ContentChildren(NgxSelectOptionComponent, { descendants: true }) public options: QueryList<NgxSelectOptionComponent>;
 
-    @Input() public uppercase: boolean = false;
-    @Input() public lowercase: boolean = false;
-    @Input() public capitalize: boolean = false;
-    // @Input() public startCase: boolean = false; // TODO: needs lodash
     @Input() public isPanelOpen: boolean = false;
     @Input() public showArrow: boolean = true;
     @Input() public rotateArrow: boolean = true;
     @Input() public closeOutsideClick: boolean = true;
     @Input() public arrowIcon: string = 'ngx-arrow-icon';
     @Input() public placeholder: string;
-    @Input() public width: string;
+    @Input() public textTransform: 'none' | 'lowercase' | 'uppercase' | 'capitalize';
     @Input() public height: string;
+
+    @HostBinding('style.width')
+    @Input() public width: string;
+
+    @HostBinding('class.ngx-disabled')
+    @Input() public disabled: boolean = false;
 
     @HostBinding('attr.tabindex')
     @Input()
@@ -112,8 +114,6 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @Output() public readonly opened: EventEmitter<void> = new EventEmitter<void>();
     @Output() public readonly closed: EventEmitter<void> = new EventEmitter<void>();
 
-    @HostBinding('class.ngx-disabled') @Input() disabled: boolean = false;
-
     /** Check is anything selected. */
     public get isEmpty(): boolean {
         return !this._selectionModel || this._selectionModel.isEmpty();
@@ -131,19 +131,6 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
 
     public get isFocused(): boolean {
         return this._focused;
-    }
-
-    // TODO: think about pipe/directive with `textTransform` property
-    public get textTransform(): string {
-        if (this.lowercase) {
-            return 'ngx-lowercase';
-        } else if (this.uppercase) {
-            return 'ngx-uppercase';
-        } else if (this.capitalize) {
-            return 'ngx-capitalize';
-        } else {
-            return '';
-        }
     }
 
     private _arrowIconDown: string = 'arrow-down';

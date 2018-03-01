@@ -1,12 +1,11 @@
 <div cdk-overlay-origin
      class="ngx-select-trigger"
-     [style.width]="width"
      (click)="toggle()"
      #origin="cdkOverlayOrigin">
-    <div class="ngx-select-value" [ngSwitch]="isEmpty">
-        <span class="ngx-select-placeholder" *ngSwitchCase="true">{{placeholder || '\u00A0'}}</span>
-        <span class="ngx-select-value-text"
-              [ngClass]="textTransform"
+    <div class="ngx-select-trigger-value-wrapper" [ngSwitch]="isEmpty">
+        <span class="ngx-select-trigger-placeholder" *ngSwitchCase="true">{{placeholder || '\u00A0'}}</span>
+        <span class="ngx-select-trigger-value"
+              [style.text-transform]="textTransform"
               *ngSwitchCase="false"
               [ngSwitch]="!!ngxSelectTemplate">
              <span *ngSwitchDefault>{{displayValue}}</span>
@@ -31,7 +30,7 @@
          class="ngx-select-panel">
         <div #selectContent
              class="ngx-select-content"
-             [ngClass]="textTransform">
+             [style.text-transform]="textTransform">
             <ng-content></ng-content>
         </div>
     </div>

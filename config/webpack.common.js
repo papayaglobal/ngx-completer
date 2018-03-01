@@ -35,7 +35,6 @@ module.exports = {
             },
             {
                 test: /\.s?css$/,
-                exclude: [helpers.root('demo')],
                 use: ["raw-loader", "sass-loader"]
             },
             {

@@ -3,7 +3,7 @@
 
 
 <h3>Simple select</h3>
-<p>Simple select (try keyboard arrows & type first letters to search)</p>
+<p>(try keyboard arrows & type first letters to search)</p>
 
 <div class="card">
     <div class="card-block">
@@ -24,8 +24,7 @@
 </div>
 
 
-<h3>Simple select</h3>
-<p>Placeholder</p>
+<h3>Select with placeholder</h3>
 
 <div class="card">
     <div class="card-block">
@@ -47,8 +46,7 @@
 </div>
 
 
-<h3>Simple select</h3>
-<p>Deselect option</p>
+<h3>Select with deselect option</h3>
 
 <div class="card">
     <div class="card-block">
@@ -71,8 +69,8 @@
 </div>
 
 
-<h3>Simple select</h3>
-<p>SelectionChange event (look console). Emits <code>previous</code> and <code>new</code> selected value</p>
+<h3>Simple select, SelectionChange event</h3>
+<p>(look console). Emits <code>previous</code> and <code>new</code> selected value</p>
 
 <div class="card">
     <div class="card-block">
@@ -98,13 +96,13 @@
 <h3>Simple select</h3>
 <p>Change text view (Need refactoring)</p>
 <p>
-    <label><input type="radio" name="textTransform"> Normal</label>
+    <label><input type="radio" name="textTransform" value="none" [(ngModel)]="textTransform" checked> Normal</label>
     <br/>
-    <label><input type="radio" name="textTransform"> Uppercase</label>
+    <label><input type="radio" name="textTransform" value="uppercase" [(ngModel)]="textTransform"> Uppercase</label>
     <br/>
-    <label><input type="radio" name="textTransform"> Lowercase</label>
+    <label><input type="radio" name="textTransform" value="lowercase" [(ngModel)]="textTransform"> Lowercase</label>
     <br/>
-    <label><input type="radio" name="textTransform"> Capitalize</label>
+    <label><input type="radio" name="textTransform" value="capitalize" [(ngModel)]="textTransform"> Capitalize</label>
 </p>
 
 <div class="card">
@@ -112,6 +110,7 @@
         <div class="form-group row">
             <div class="col-5">
                 <ngx-select placeholder="Select Country"
+                            [textTransform]="textTransform"
                             [(ngModel)]="selectedCountry5">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
