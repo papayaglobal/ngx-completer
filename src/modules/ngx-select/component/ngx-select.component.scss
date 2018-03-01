@@ -111,8 +111,9 @@
   -webkit-overflow-scrolling: touch;
   height: 100%;
   min-width: 100%;
+  max-height: 256px;
   border-radius: 4px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 
   .ngx-select-panel-content {
     background: $white;
