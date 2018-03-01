@@ -12,8 +12,7 @@ import {
 } from '@angular/core';
 
 /**
- * Option IDs need to be unique across components, so this counter exists outside of
- * the component definition.
+ * To set unique Id for component
  */
 let _uniqueIdCounter = 0;
 
@@ -30,14 +29,15 @@ export class NgxOptionSelectionChange {
     templateUrl: 'ngx-select-option.component.html',
     styleUrls: ['ngx-select-option.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    preserveWhitespaces: false,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxSelectOptionComponent {
-    @Input() public value: any;
-    @Input() public disabled: boolean = false;
-
     @Output() public onSelectionChange = new EventEmitter<NgxOptionSelectionChange>();
+
+    @Input() public value: any;
+
+    @HostBinding('class.ngx-disabled')
+    @Input() public disabled: boolean = false;
 
     @HostBinding('class.ngx-selected')
     public get selected(): boolean {

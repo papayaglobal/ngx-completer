@@ -1,14 +1,23 @@
-.ngx-option-text {
-    display: block;
-    line-height: 35px;
-    padding: 0 15px;
-    text-overflow: ellipsis;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
+@import "../../../../common/mixins";
+@import "../../../../common/variables";
 
-.ngx-option-text:hover {
-    background-color: lightgray;
-    cursor: pointer;
+.ngx-option-value {
+  display: block;
+  line-height: 35px;
+  padding: 0 15px;
+  width: 100%;
+  cursor: pointer;
+  @include ngx-overflow-ellipsis;
+
+  &:hover,
+  .ngx-active & {
+    background-color: $active-option;
+  }
+
+  .ngx-disabled &,
+  .ngx-disabled &:hover {
+    background-color: $white;
+    opacity: .38;
+    cursor: default;
+  }
 }

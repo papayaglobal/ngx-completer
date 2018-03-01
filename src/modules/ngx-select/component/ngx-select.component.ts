@@ -30,7 +30,8 @@ import {
     HostListener,
     ViewChild,
     ElementRef,
-    ContentChild
+    ContentChild,
+    HostBinding
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
@@ -43,7 +44,7 @@ import { filter } from 'rxjs/operators/filter';
 import { defer } from 'rxjs/observable/defer';
 import { merge } from 'rxjs/observable/merge';
 
-import { isNill, noop } from '../globals';
+import { isNill, noop, parseNumber, compare } from '../../../common/common';
 import { NgxSelectModel } from './ngx-select-model';
 import { NgxOptionSelectionChange, NgxSelectOptionComponent } from './ngx-select-option/ngx-select-option.component';
 import { NgxSelectTemplate } from './ngx-select-template';
@@ -53,8 +54,10 @@ import { NgxSelectTemplate } from './ngx-select-template';
     templateUrl: 'ngx-select.component.html',
     styleUrls: ['ngx-select.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    preserveWhitespaces: false,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        'class': 'ngx-select'
+    }
 })
 export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValueAccessor, OnDestroy {
     @ViewChild('selectPanel') public selectPanel: ElementRef;
@@ -64,20 +67,20 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @ContentChild(NgxSelectTemplate) public ngxSelectTemplate: NgxSelectTemplate;
     @ContentChildren(NgxSelectOptionComponent, { descendants: true }) public options: QueryList<NgxSelectOptionComponent>;
 
-    @Input() public uppercase: boolean = false;
-    @Input() public lowercase: boolean = false;
-    @Input() public capitalize: boolean = false;
-    // @Input() public startCase: boolean = false; // TODO: needs lodash
     @Input() public isPanelOpen: boolean = false;
-    @Input() public disabled: boolean = false; // TODO: complete disabled + also for options
     @Input() public showArrow: boolean = true;
     @Input() public rotateArrow: boolean = true;
     @Input() public closeOutsideClick: boolean = true;
-    @Input() public arrowIcon: string = '';
+    @Input() public arrowIcon: string = 'ngx-arrow-icon';
     @Input() public placeholder: string;
-    @Input() public width: string;
+    @Input() public textTransform: 'none' | 'lowercase' | 'uppercase' | 'capitalize';
     @Input() public height: string;
+    @Input() public width: string;
 
+    @HostBinding('class.ngx-disabled')
+    @Input() public disabled: boolean = false;
+
+    @HostBinding('attr.tabindex')
     @Input()
     public get tabIndex(): number {
         if (this.disabled) {
@@ -125,19 +128,6 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
 
     public get isFocused(): boolean {
         return this._focused;
-    }
-
-    // TODO: think about pipe/directive with `textTransform` property
-    public get textTransform(): string {
-        if (this.lowercase) {
-            return 'ngx-lowercase';
-        } else if (this.uppercase) {
-            return 'ngx-uppercase';
-        } else if (this.capitalize) {
-            return 'ngx-capitalize';
-        } else {
-            return '';
-        }
     }
 
     private _arrowIconDown: string = 'arrow-down';
@@ -244,7 +234,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     }
 
     public focus(): void {
-        this.origin.elementRef.nativeElement.focus();
+        this._elementRef.nativeElement.focus();
     }
 
     public onOverlayAttached(): void {
@@ -342,7 +332,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
 
     private findOptionByValue(value: any): NgxSelectOptionComponent | undefined {
         return this.options.find((option: NgxSelectOptionComponent) => {
-            return !isNill(option.value) && this.compareWith(option.value, value);
+            return !isNill(option.value) && compare(option.value, value);
         });
     }
 
@@ -497,7 +487,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
         const selectPanelEl: HTMLElement = this.selectPanel.nativeElement;
         const panelTop = selectPanelEl.scrollTop;
         const panelHeight = selectPanelEl.offsetHeight;
-        const scrollOffset = activeOptionIndex * itemHeight + this.parseInt(getComputedStyle(selectContentEl).paddingTop);
+        const scrollOffset = activeOptionIndex * itemHeight + parseNumber(getComputedStyle(selectContentEl).paddingTop);
 
         if (scrollOffset < panelTop) {
             selectPanelEl.scrollTop = scrollOffset;
@@ -527,8 +517,8 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     private getOptionHeight(): number {
         const selectContentEl: HTMLElement = this.selectContent.nativeElement;
 
-        const panelContentPaddingTop = this.parseInt(getComputedStyle(selectContentEl).paddingTop);
-        const panelContentPaddingBottom = this.parseInt(getComputedStyle(selectContentEl).paddingBottom);
+        const panelContentPaddingTop = parseNumber(getComputedStyle(selectContentEl).paddingTop);
+        const panelContentPaddingBottom = parseNumber(getComputedStyle(selectContentEl).paddingBottom);
         const panelContentHeight = selectContentEl.clientHeight - panelContentPaddingTop - panelContentPaddingBottom;
 
         return panelContentHeight / this.options.length;
@@ -558,18 +548,4 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     private rotateIcon(): string {
         return this.rotateArrow && this.isPanelOpen ? this._arrowIconUp : this._arrowIconDown;
     }
-
-    // TODO: move to helper class
-    private parseInt(value: string | null): number {
-        const radix: number = 10;
-
-        if (isNill(value)) {
-            return 0;
-        }
-
-        return parseInt(value as string, radix);
-    }
-
-    // TODO: move to helper class || use lodash.Equal
-    private compareWith = (o1: any, o2: any) => o1 === o2;
 }

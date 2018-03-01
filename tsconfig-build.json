@@ -39,6 +39,7 @@
         "annotateForClosureCompiler": true,
         "strictMetadataEmit": true,
         "flatModuleOutFile": "ngx-select-box.js",
-        "flatModuleId": "ngx-select-box"
+        "flatModuleId": "ngx-select-box",
+        "preserveWhitespaces": false
     }
 }

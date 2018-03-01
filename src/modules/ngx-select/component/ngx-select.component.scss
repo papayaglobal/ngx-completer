@@ -1,171 +1,119 @@
-.ngx-select-trigger {
-    display: inline-table;
-    cursor: pointer;
-    position: relative;
-    box-sizing: border-box;
-    width: 250px;
-    height: 35px;
-    line-height: 1.5;
-    font-size: 15px;
-    color: #434246;
-    border: 1px solid #c1c1c2;
-    border-radius: 4px;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    background-color: transparent;
-    outline: none;
-    box-shadow: none;
+@import "../../../common/mixins";
+@import "../../../common/variables";
+
+@include cdk-overlay;
+
+.ngx-select {
+  outline: 0;
+
+  &:hover,
+  &:focus,
+  &:active {
+    .ngx-select-trigger {
+      border: 1px solid $active-select-border;
+
+      .ngx-select-arrow-wrapper {
+        border-left: 1px solid $active-select-border;
+
+        .ngx-select-arrow {
+          color: $active-select-border;
+        }
+      }
+    }
+  }
+
+  &.ngx-disabled {
+    .ngx-select-trigger {
+      cursor: default;
+      background-color: $active-option;
+      border: 1px solid $select-border;
+
+      .ngx-select-arrow-wrapper {
+        border-left: 1px solid $select-border;
+
+        .ngx-select-arrow {
+          color: $select-border;
+        }
+      }
+    }
+  }
 }
 
-.ngx-select-trigger .ngx-select-value {
+.ngx-select-trigger {
+  display: inline-table;
+  cursor: pointer;
+  height: 35px;
+  width: 100%;
+  font-size: 15px;
+  border: 1px solid $select-border;
+  border-radius: 4px;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  background-color: white;
+
+  .ngx-select-trigger-value-wrapper {
     display: table-cell;
-    max-width: 0;
     width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     padding: 0 0 0 15px;
     vertical-align: middle;
-}
+    max-width: 0;
+    @include ngx-overflow-ellipsis;
 
-.ngx-select-trigger .ngx-select-value .ngx-select-placeholder {
-    opacity: 0.7;
-}
+    .ngx-select-trigger-placeholder {
+      opacity: 0.7;
+    }
 
-.ngx-select-trigger .ngx-select-value .ngx-select-value-text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+    .ngx-select-trigger-value {
+      @include ngx-overflow-ellipsis;
+    }
+  }
 
-.ngx-select-trigger .ngx-select-arrow-wrapper {
+  .ngx-select-arrow-wrapper {
     display: table-cell;
     vertical-align: middle;
     width: 35px;
-    padding: 13px;
+    height: 34px;
+    padding: 0 13px;
     z-index: 1;
-    border-left: 1px solid #d8d8d8;
+    border-left: 1px solid $select-border;
     border-radius: 0 4px 4px 0;
-}
+    transition: border-color ease-in-out 0.15s;
 
-.ngx-select-trigger .ngx-select-arrow-wrapper .ngx-select-arrow {
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid;
-    margin: 0 4px;
-    font-size: 8px;
-    vertical-align: text-top;
-    color: #8b8995;
-}
+    .ngx-select-arrow {
+      font-size: 8px;
+      transition: border-color ease-in-out 0.15s;
+      color: $select-border;
 
-.arrow-up {
-    transform: rotate(180deg);
-}
+      &.ngx-arrow-icon {
+        vertical-align: text-top;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid;
+        margin: 0 4px;
+      }
 
-.arrow-down {
-    transform: rotate(0deg);
-}
+      &.arrow-up {
+        transform: rotate(180deg);
+      }
 
-.ngx-uppercase {
-    text-transform: uppercase;
-}
-
-.ngx-lowercase {
-    text-transform: lowercase;
-}
-
-.ngx-capitalize {
-    text-transform: capitalize;
+      &.arrow-down {
+        transform: rotate(0deg);
+      }
+    }
+  }
 }
 
 /*=================================================================*/
 .ngx-select-panel {
-    padding: 5px 0;
-    margin: 5px 0 0 0;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    height: 100%;
-    max-height: 256px;
-    min-width: 100%;
-}
+  padding: 5px 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  min-width: 100%;
+  border-radius: 4px;
 
-.ngx-select-panel:not([class*=mat-elevation-z]) {
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
-}
-
-.ngx-select-content {
-    background: #fff;
-}
-
-ngx-select-option.ngx-active .ngx-option-text {
-    background-color: lightgray;
-}
-
-.cdk-visually-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    text-transform: none;
-    width: 1px
-}
-
-.cdk-global-overlay-wrapper, .cdk-overlay-container {
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%
-}
-
-.cdk-overlay-container {
-    position: fixed;
-    z-index: 1000
-}
-
-.cdk-global-overlay-wrapper {
-    display: flex;
-    position: absolute;
-    z-index: 1000
-}
-
-.cdk-overlay-pane {
-    position: absolute;
-    pointer-events: auto;
-    box-sizing: border-box;
-    z-index: 1000
-}
-
-.cdk-overlay-backdrop {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    pointer-events: auto;
-    transition: opacity .4s cubic-bezier(.25, .8, .25, 1);
-    opacity: 0
-}
-
-.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
-    opacity: .48
-}
-
-.cdk-overlay-dark-backdrop {
-    background: rgba(0, 0, 0, .6)
-}
-
-.cdk-overlay-transparent-backdrop {
-    background: 0 0
-}
-
-.cdk-global-scrollblock {
-    position: fixed;
-    width: 100%;
-    overflow-y: scroll
+  .ngx-select-panel-content {
+    background: $white;
+  }
 }
