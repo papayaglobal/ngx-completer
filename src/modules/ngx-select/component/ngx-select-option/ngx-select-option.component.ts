@@ -29,15 +29,15 @@ export class NgxOptionSelectionChange {
     templateUrl: 'ngx-select-option.component.html',
     styleUrls: ['ngx-select-option.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    preserveWhitespaces: false,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxSelectOptionComponent {
-    @Input() public value: any;
-
     @Output() public onSelectionChange = new EventEmitter<NgxOptionSelectionChange>();
 
-    @HostBinding('class.ngx-disabled') @Input() disabled: boolean = false;
+    @Input() public value: any;
+
+    @HostBinding('class.ngx-disabled')
+    @Input() public disabled: boolean = false;
 
     @HostBinding('class.ngx-selected')
     public get selected(): boolean {
