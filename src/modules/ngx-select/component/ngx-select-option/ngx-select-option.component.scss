@@ -1,22 +1,22 @@
-.ngx-option-text {
-    display: block;
-    line-height: 35px;
-    padding: 0 15px;
-    text-overflow: ellipsis;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
+@import "../../../../common/mixins";
 
-    &:hover,
-    .ngx-active & {
-        background-color: #f5f5f5;
-    }
+.ngx-option-value {
+  display: block;
+  line-height: 35px;
+  padding: 0 15px;
+  width: 100%;
+  cursor: pointer;
+  @include ngx-overflow-ellipsis;
 
-    .ngx-disabled &,
-    .ngx-disabled &:hover {
-        background-color: white;
-        opacity: .38;
-        cursor: default;
-    }
+  &:hover,
+  .ngx-active & {
+    background-color: #f5f5f5;
+  }
+
+  .ngx-disabled &,
+  .ngx-disabled &:hover {
+    background-color: white;
+    opacity: .38;
+    cursor: default;
+  }
 }

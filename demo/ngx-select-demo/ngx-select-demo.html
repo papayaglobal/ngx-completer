@@ -156,7 +156,8 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country"
+                <ngx-select class="py-select"
+                            placeholder="Select Country"
                             [(ngModel)]="selectedCountry7">
                     <ngx-select-template>
                         <img [src]="selectedCountry7?.flag"/> <span>{{selectedCountry7?.name}}</span>

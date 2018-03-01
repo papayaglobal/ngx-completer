@@ -76,8 +76,6 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @Input() public placeholder: string;
     @Input() public textTransform: 'none' | 'lowercase' | 'uppercase' | 'capitalize';
     @Input() public height: string;
-
-    @HostBinding('style.width')
     @Input() public width: string;
 
     @HostBinding('class.ngx-disabled')
@@ -237,7 +235,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     }
 
     public focus(): void {
-        this.origin.elementRef.nativeElement.focus();
+        this._elementRef.nativeElement.focus();
     }
 
     public onOverlayAttached(): void {

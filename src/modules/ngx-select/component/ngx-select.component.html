@@ -1,6 +1,7 @@
 <div cdk-overlay-origin
      class="ngx-select-trigger"
      (click)="toggle()"
+     [style.width]="width"
      #origin="cdkOverlayOrigin">
     <div class="ngx-select-trigger-value-wrapper" [ngSwitch]="isEmpty">
         <span class="ngx-select-trigger-placeholder" *ngSwitchCase="true">{{placeholder || '\u00A0'}}</span>
@@ -29,7 +30,7 @@
     <div #selectPanel
          class="ngx-select-panel">
         <div #selectContent
-             class="ngx-select-content"
+             class="ngx-select-panel-content"
              [style.text-transform]="textTransform">
             <ng-content></ng-content>
         </div>
