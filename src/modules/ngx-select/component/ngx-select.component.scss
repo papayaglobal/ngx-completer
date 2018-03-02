@@ -12,10 +12,10 @@
     .ngx-select-trigger {
       border: 1px solid $active-select-border;
 
-      .ngx-select-arrow-wrapper {
+      .ngx-select-icon-wrapper {
         border-left: 1px solid $active-select-border;
 
-        .ngx-select-arrow {
+        .ngx-select-icon {
           color: $active-select-border;
         }
       }
@@ -28,10 +28,10 @@
       background-color: $active-option;
       border: 1px solid $select-border;
 
-      .ngx-select-arrow-wrapper {
+      .ngx-select-icon-wrapper {
         border-left: 1px solid $select-border;
 
-        .ngx-select-arrow {
+        .ngx-select-icon {
           color: $select-border;
         }
       }
@@ -67,7 +67,7 @@
     }
   }
 
-  .ngx-select-arrow-wrapper {
+  .ngx-select-icon-wrapper {
     display: table-cell;
     vertical-align: middle;
     width: 35px;
@@ -78,27 +78,22 @@
     border-radius: 0 4px 4px 0;
     transition: border-color ease-in-out 0.15s;
 
-    .ngx-select-arrow {
+    .ngx-select-icon {
       font-size: 8px;
       transition: border-color ease-in-out 0.15s;
       color: $select-border;
+      margin: 0 4px;
 
-      &.ngx-arrow-icon {
-        vertical-align: text-top;
-        width: 0;
-        height: 0;
+      &.icon-closed {
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
         border-top: 5px solid;
-        margin: 0 4px;
       }
 
-      &.arrow-up {
-        transform: rotate(180deg);
-      }
-
-      &.arrow-down {
-        transform: rotate(0deg);
+      &.icon-opened {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid;
       }
     }
   }
@@ -109,9 +104,8 @@
   padding: 5px 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  height: 100%;
-  min-width: 100%;
-  max-height: 256px;
+  max-height: inherit;
+  max-width: inherit;
   border-radius: 4px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 
