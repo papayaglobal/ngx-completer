@@ -1,7 +1,7 @@
 {
   "name": "ngx-select-box",
   "private": false,
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Angular 5 select component",
   "main": "./bundles/ngx-select-box.umd.js",
   "module": "./esm5/ngx-select-box.js",
