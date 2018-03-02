@@ -129,8 +129,8 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
         return this._focused;
     }
 
-    private _arrowIconDown: string = 'icon-closed';
-    private _arrowIconUp: string = 'icon-opened';
+    private _iconClosed: string = 'icon-closed';
+    private _iconOpened: string = 'icon-opened';
     private _tabIndex: number = 0;
     private _focused = false;
     private _value: any;
@@ -545,6 +545,6 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     }
 
     private rotateIcon(): string {
-        return this.rotateArrow && this.isPanelOpen ? this._arrowIconUp : this._arrowIconDown;
+        return this.rotateArrow && this.isPanelOpen ? this._iconOpened : this._iconClosed;
     }
 }
