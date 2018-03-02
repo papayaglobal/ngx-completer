@@ -231,7 +231,7 @@
                             [rotateArrow]="rotateArrowButton"
                             [closeOutsideClick]="closeOnOutsideClick"
                             [width]="width"
-                            [height]="height"
+                            [maxHeight]="height"
                             [(ngModel)]="selectedCountry99">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
                     <ngx-select-option *ngFor="let item of countries" [value]="item">

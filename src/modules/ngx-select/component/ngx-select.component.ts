@@ -71,10 +71,9 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @Input() public showArrow: boolean = true;
     @Input() public rotateArrow: boolean = true;
     @Input() public closeOutsideClick: boolean = true;
-    @Input() public arrowIcon: string = 'ngx-arrow-icon';
     @Input() public placeholder: string;
     @Input() public textTransform: 'none' | 'lowercase' | 'uppercase' | 'capitalize';
-    @Input() public height: string;
+    @Input() public maxHeight: string;
     @Input() public width: string;
 
     @HostBinding('class.ngx-disabled')
@@ -130,8 +129,8 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
         return this._focused;
     }
 
-    private _arrowIconDown: string = 'arrow-down';
-    private _arrowIconUp: string = 'arrow-up';
+    private _iconClosed: string = 'icon-closed';
+    private _iconOpened: string = 'icon-opened';
     private _tabIndex: number = 0;
     private _focused = false;
     private _value: any;
@@ -240,7 +239,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     public onOverlayAttached(): void {
         this.connectedOverlay.overlayRef.updateSize({
             width: this.origin.elementRef.nativeElement.offsetWidth,
-            height: this.height
+            maxHeight: this.maxHeight
         });
 
         this.connectedOverlay.positionChange
@@ -546,6 +545,6 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     }
 
     private rotateIcon(): string {
-        return this.rotateArrow && this.isPanelOpen ? this._arrowIconUp : this._arrowIconDown;
+        return this.rotateArrow && this.isPanelOpen ? this._iconOpened : this._iconClosed;
     }
 }
