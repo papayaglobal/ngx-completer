@@ -11,14 +11,14 @@
   &:active {
     .ngx-select-trigger {
       border: 1px solid $active-select-border;
+    }
 
-      .ngx-select-icon-wrapper {
-        border-left: 1px solid $active-select-border;
+    .ngx-select-icon-wrapper {
+      border-left: 1px solid $active-select-border;
+    }
 
-        .ngx-select-icon {
-          color: $active-select-border;
-        }
-      }
+    .ngx-select-icon {
+      color: $active-select-border;
     }
   }
 
@@ -27,14 +27,14 @@
       cursor: default;
       background-color: $active-option;
       border: 1px solid $select-border;
+    }
 
-      .ngx-select-icon-wrapper {
-        border-left: 1px solid $select-border;
+    .ngx-select-icon-wrapper {
+      border-left: 1px solid $select-border;
+    }
 
-        .ngx-select-icon {
-          color: $select-border;
-        }
-      }
+    .ngx-select-icon {
+      color: $select-border;
     }
   }
 }
@@ -49,53 +49,53 @@
   border-radius: 4px;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   background-color: white;
+}
 
-  .ngx-select-trigger-value-wrapper {
-    display: table-cell;
-    width: 100%;
-    padding: 0 0 0 15px;
-    vertical-align: middle;
-    max-width: 0;
-    @include ngx-overflow-ellipsis;
+.ngx-select-trigger-value-wrapper {
+  display: table-cell;
+  width: 100%;
+  padding: 0 0 0 15px;
+  vertical-align: middle;
+  max-width: 0;
+  @include ngx-overflow-ellipsis;
 
-    .ngx-select-trigger-placeholder {
-      opacity: 0.7;
-    }
-
-    .ngx-select-trigger-value {
-      @include ngx-overflow-ellipsis;
-    }
+  .ngx-select-trigger-placeholder {
+    opacity: 0.7;
   }
 
-  .ngx-select-icon-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-    width: 35px;
-    height: 34px;
-    padding: 0 13px;
-    z-index: 1;
-    border-left: 1px solid $select-border;
-    border-radius: 0 4px 4px 0;
-    transition: border-color ease-in-out 0.15s;
+  .ngx-select-trigger-value {
+    @include ngx-overflow-ellipsis;
+  }
+}
 
-    .ngx-select-icon {
-      font-size: 8px;
-      transition: border-color ease-in-out 0.15s;
-      color: $select-border;
-      margin: 0 4px;
+.ngx-select-icon-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  width: 35px;
+  height: 34px;
+  padding: 0 13px;
+  z-index: 1;
+  border-left: 1px solid $select-border;
+  border-radius: 0 4px 4px 0;
+  transition: border-color ease-in-out 0.15s;
+}
 
-      &.icon-closed {
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid;
-      }
+.ngx-select-icon {
+  font-size: 8px;
+  transition: border-color ease-in-out 0.15s;
+  color: $select-border;
+  margin: 0 4px;
 
-      &.icon-opened {
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-bottom: 5px solid;
-      }
-    }
+  &.icon-closed {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+  }
+
+  &.icon-opened {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid;
   }
 }
 
