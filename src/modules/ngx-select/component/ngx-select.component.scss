@@ -71,9 +71,8 @@
 .ngx-select-icon-wrapper {
   display: table-cell;
   vertical-align: middle;
-  width: 35px;
   height: 34px;
-  padding: 0 13px;
+  padding: 0 12px;
   z-index: 1;
   border-left: 1px solid $select-border;
   border-radius: 0 4px 4px 0;
@@ -81,10 +80,9 @@
 }
 
 .ngx-select-icon {
-  font-size: 8px;
+  font-size: 6px;
   transition: border-color ease-in-out 0.15s;
-  color: $select-border;
-  margin: 0 4px;
+  color: $select-arrow;
 
   &.icon-closed {
     border-left: 5px solid transparent;
