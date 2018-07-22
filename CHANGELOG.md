@@ -1,5 +1,9 @@
 ## Angular library starter Changelog
 
+<a name="Jul 22, 2018"></a>
+### Jul 22, 2018
+* Upgrade to angular 6
+
 <a name="Jan 15, 2018"></a>
 ### Jan 15, 2018
 * Add instructions for inlining of templates and stylesheets

@@ -61,21 +61,7 @@ const globals = {
     '@angular/cdk/keycodes': 'ng.cdk.keycodes',
     '@angular/cdk/collections': 'ng.cdk.collections',
     '@angular/cdk/a11y': 'ng.cdk.a11y',
-    '@angular/cdk/overlay': 'ng.cdk.overlay',
-
-    'rxjs/Observer': 'Rx',
-    'rxjs/Observable': 'Rx',
-    'rxjs/Subject': 'Rx',
-    'rxjs/Subscription': 'Rx',
-
-    'rxjs/observable/defer': 'Rx.Observable.prototype',
-    'rxjs/observable/merge': 'Rx.Observable.prototype',
-
-    'rxjs/operators/take': 'Rx.Observable.prototype',
-    'rxjs/operators/switchMap': 'Rx.Observable.prototype',
-    'rxjs/operators/startWith': 'Rx.Observable.prototype',
-    'rxjs/operators/takeUntil': 'Rx.Observable.prototype',
-    'rxjs/operators/filter': 'Rx.Observable.prototype'
+    '@angular/cdk/overlay': 'ng.cdk.overlay'
 };
 
 export default {
