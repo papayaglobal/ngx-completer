@@ -21,9 +21,9 @@
 
 <ng-template cdk-connected-overlay
              hasBackdrop
-             backdropClass="cdk-overlay-transparent-backdrop"
-             [origin]="origin"
-             [open]="isPanelOpen"
+             cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+             [cdkConnectedOverlayOrigin]="origin"
+             [cdkConnectedOverlayOpen]="isPanelOpen"
              (backdropClick)="closeOutsideClick && close()"
              (detach)="close()"
              (attach)="onOverlayAttached()">
