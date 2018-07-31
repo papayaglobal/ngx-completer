@@ -75,6 +75,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     @Input() public textTransform: 'none' | 'lowercase' | 'uppercase' | 'capitalize';
     @Input() public maxHeight: string;
     @Input() public width: string;
+    @Input() public preSelectedItem: any;
 
     @HostBinding('class.ngx-disabled')
     @Input() public disabled: boolean = false;
@@ -540,7 +541,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     private initializeSelection(): void {
         // Waiting for all sync operations and then selects value
         Promise.resolve().then(() => {
-            this.setSelectionByValue(this.ngControl ? this.ngControl.value : this._value);
+            this.setSelectionByValue(this.ngControl && this.ngControl.value ? this.ngControl.value : this.preSelectedItem || this._value);
         });
     }
 
