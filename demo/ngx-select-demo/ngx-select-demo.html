@@ -46,6 +46,31 @@
 </div>
 
 
+<h3>Select with preselected value</h3>
+
+<div class="card">
+    <div class="card-block">
+        <div class="form-group row">
+            <div class="col-5">
+                <ngx-select placeholder="Select Country" [(ngModel)]="selectedCountry2" [preSelectedItem]="countries[0]">
+                    <ngx-select-option *ngFor="let item of countries" [value]="item">
+                        {{item.name}}
+                    </ngx-select-option>
+                </ngx-select>
+            </div>
+            <div class="col-6">
+                <p class="form-control-static">Code:
+                    <b>{{selectedCountry2?.code || ''}}</b>
+                </p>
+                <p class="form-control-static">Country:
+                    <b>{{selectedCountry2?.name || ''}}</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <h3>Select with deselect option</h3>
 
 <div class="card">
