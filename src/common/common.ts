@@ -15,7 +15,3 @@ export function parseNumber(value: string | null): number {
 
     return parseInt(value as string, radix);
 }
-
-export function compare(attr1: any, attr2: any): boolean {
-    return attr1 === attr2;
-}

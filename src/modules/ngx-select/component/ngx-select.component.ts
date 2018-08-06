@@ -43,8 +43,9 @@ import { takeUntil } from 'rxjs/operators/takeUntil';
 import { filter } from 'rxjs/operators/filter';
 import { defer } from 'rxjs/observable/defer';
 import { merge } from 'rxjs/observable/merge';
+var isEqual = require('lodash.isequal');
 
-import { isNill, noop, parseNumber, compare } from '../../../common/common';
+import { isNill, noop, parseNumber } from '../../../common/common';
 import { NgxSelectModel } from './ngx-select-model';
 import { NgxOptionSelectionChange, NgxSelectOptionComponent } from './ngx-select-option/ngx-select-option.component';
 import { NgxSelectTemplate } from './ngx-select-template';
@@ -158,9 +159,9 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
     });
 
     public constructor(private _elementRef: ElementRef,
-                       private _ngZone: NgZone,
-                       private _changeDetectorRef: ChangeDetectorRef,
-                       @Self() @Optional() public ngControl: NgControl) {
+        private _ngZone: NgZone,
+        private _changeDetectorRef: ChangeDetectorRef,
+        @Self() @Optional() public ngControl: NgControl) {
         if (this.ngControl) {
             // Using value accessor, instead of using the `provider`
             this.ngControl.valueAccessor = this;
@@ -332,7 +333,7 @@ export class NgxSelectComponent implements OnInit, AfterContentInit, ControlValu
 
     private findOptionByValue(value: any): NgxSelectOptionComponent | undefined {
         return this.options.find((option: NgxSelectOptionComponent) => {
-            return !isNill(option.value) && compare(option.value, value);
+            return !isNill(option.value) && isEqual(option.value, value);
         });
     }
 
