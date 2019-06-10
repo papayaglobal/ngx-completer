@@ -1,5 +1,9 @@
 ## Angular library starter Changelog
 
+<a name="Jun 10, 20189"></a>
+### Jun 10, 2019
+* Upgrade to angular 7
+
 <a name="Jul 22, 2018"></a>
 ### Jul 22, 2018
 * Upgrade to angular 6
