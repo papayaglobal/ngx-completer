@@ -4,7 +4,7 @@ import { NgxSelectModel } from "../../src/modules/ngx-select";
 
 @Component({
     selector: 'ngx-select-demo',
-    templateUrl: 'ngx-select-demo.html',
+    templateUrl: './ngx-select-demo.html',
     styleUrls: ['ngx-select-demo.scss']
 })
 export class NgxSelectDemo {

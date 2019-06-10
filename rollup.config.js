@@ -61,7 +61,9 @@ const globals = {
     '@angular/cdk/keycodes': 'ng.cdk.keycodes',
     '@angular/cdk/collections': 'ng.cdk.collections',
     '@angular/cdk/a11y': 'ng.cdk.a11y',
-    '@angular/cdk/overlay': 'ng.cdk.overlay'
+    '@angular/cdk/overlay': 'ng.cdk.overlay',
+    'rxjs': 'rxjs',
+    'rxjs/operators': 'rxjs.operators'
 };
 
 export default {

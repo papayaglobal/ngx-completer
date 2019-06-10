@@ -47,7 +47,7 @@ import { NgxSelectTemplate } from "./ngx-select-template";
 
 @Component({
   selector: "ngx-select",
-  templateUrl: "ngx-select.component.html",
+  templateUrl: "./ngx-select.component.html",
   styleUrls: ["ngx-select.component.scss"],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

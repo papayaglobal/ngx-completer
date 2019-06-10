@@ -26,7 +26,7 @@ export class NgxOptionSelectionChange {
 @Component({
     selector: 'ngx-select-option',
     exportAs: 'ngxSelectOption',
-    templateUrl: 'ngx-select-option.component.html',
+    templateUrl: './ngx-select-option.component.html',
     styleUrls: ['ngx-select-option.component.scss'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
