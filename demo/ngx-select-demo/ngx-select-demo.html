@@ -1,5 +1,5 @@
-<script src="../boot.ts"></script><h1 style="margin-top: 1em;"
-                                      class="page">Ngx Select</h1>
+<script src="../boot.ts"></script>
+<h1 style="margin-top: 1em;" class="page">Ngx Select</h1>
 
 
 <h3>Simple select</h3>
@@ -30,8 +30,7 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country"
-                            [(ngModel)]="selectedCountry2">
+                <ngx-select placeholder="Select Country" [(ngModel)]="selectedCountry2">
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
                         {{item.name}}
                     </ngx-select-option>
@@ -52,7 +51,8 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country" [(ngModel)]="selectedCountry2" [preSelectedItem]="countries[0]">
+                <ngx-select placeholder="Select Country" [(ngModel)]="selectedCountry6"
+                    [preSelectedItem]="countries[0]">
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
                         {{item.name}}
                     </ngx-select-option>
@@ -60,10 +60,10 @@
             </div>
             <div class="col-6">
                 <p class="form-control-static">Code:
-                    <b>{{selectedCountry2?.code || ''}}</b>
+                    <b>{{selectedCountry6?.code || ''}}</b>
                 </p>
                 <p class="form-control-static">Country:
-                    <b>{{selectedCountry2?.name || ''}}</b>
+                    <b>{{selectedCountry6?.name || ''}}</b>
                 </p>
             </div>
         </div>
@@ -77,8 +77,7 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country"
-                            [(ngModel)]="selectedCountry3">
+                <ngx-select placeholder="Select Country" [(ngModel)]="selectedCountry3">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
                         {{item.name}}
@@ -101,9 +100,8 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country"
-                            (selectionChange)="onSelectionChange($event)"
-                            [(ngModel)]="selectedCountry4">
+                <ngx-select placeholder="Select Country" (selectionChange)="onSelectionChange($event)"
+                    [(ngModel)]="selectedCountry4">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
                         {{item.name}}
@@ -122,11 +120,11 @@
 <p>Change text view (Need refactoring)</p>
 <p>
     <label><input type="radio" name="textTransform" value="none" [(ngModel)]="textTransform" checked> Normal</label>
-    <br/>
+    <br />
     <label><input type="radio" name="textTransform" value="uppercase" [(ngModel)]="textTransform"> Uppercase</label>
-    <br/>
+    <br />
     <label><input type="radio" name="textTransform" value="lowercase" [(ngModel)]="textTransform"> Lowercase</label>
-    <br/>
+    <br />
     <label><input type="radio" name="textTransform" value="capitalize" [(ngModel)]="textTransform"> Capitalize</label>
 </p>
 
@@ -134,9 +132,7 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country"
-                            [textTransform]="textTransform"
-                            [(ngModel)]="selectedCountry5">
+                <ngx-select placeholder="Select Country" [textTransform]="textTransform" [(ngModel)]="selectedCountry5">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
                         {{item.name}}
@@ -158,8 +154,7 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country"
-                            [(ngModel)]="selectedCountry6">
+                <ngx-select placeholder="Select Country" [(ngModel)]="selectedCountry6">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
                         <span>{{item.name}} ({{item.code}})</span>
@@ -181,14 +176,13 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country"
-                            [(ngModel)]="selectedCountry7">
+                <ngx-select placeholder="Select Country" [(ngModel)]="selectedCountry7">
                     <ngx-select-template>
-                        <img [src]="selectedCountry7?.flag"/> <span>{{selectedCountry7?.name}}</span>
+                        <img [src]="selectedCountry7?.flag" /> <span>{{selectedCountry7?.name}}</span>
                     </ngx-select-template>
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
-                        <img [src]="item.flag"/> <span>{{item.name}}</span>
+                        <img [src]="item.flag" /> <span>{{item.name}}</span>
                     </ngx-select-option>
                 </ngx-select>
             </div>
@@ -211,11 +205,10 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select placeholder="Select Country"
-                            [(ngModel)]="selectedCountry8"
-                            [disabled]="disabled">
+                <ngx-select placeholder="Select Country" [(ngModel)]="selectedCountry8" [disabled]="disabled">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
-                    <ngx-select-option *ngFor="let item of countries; let i = index" [value]="item" [disabled]="i === 3 && optionDisabled">
+                    <ngx-select-option *ngFor="let item of countries; let i = index" [value]="item"
+                        [disabled]="i === 3 && optionDisabled">
                         {{item.name}}
                     </ngx-select-option>
                 </ngx-select>
@@ -234,15 +227,15 @@
 <p>
     <button (click)="ngxSelectForControls.toggle()">Toggle</button>
     <button (click)="ngxSelectForControls.focus()">Focus</button>
-    <br/>
+    <br />
     <label><input type="checkbox" [(ngModel)]="closeOnOutsideClick"> Close on outside click</label>
-    <br/>
+    <br />
     <label><input type="checkbox" [(ngModel)]="showArrowButton"> Show arrow button</label>
-    <br/>
+    <br />
     <label><input type="checkbox" [(ngModel)]="rotateArrowButton"> Rotate arrow on open/close</label>
-    <br/>
+    <br />
     <label><input type="input" [(ngModel)]="width"> Select Width</label>
-    <br/>
+    <br />
     <label><input type="input" [(ngModel)]="height"> Dropdown height</label>
 </p>
 
@@ -250,14 +243,9 @@
     <div class="card-block">
         <div class="form-group row">
             <div class="col-5">
-                <ngx-select #ngxSelectForControls
-                            placeholder="Select Country"
-                            [showArrow]="showArrowButton"
-                            [rotateArrow]="rotateArrowButton"
-                            [closeOutsideClick]="closeOnOutsideClick"
-                            [width]="width"
-                            [maxHeight]="height"
-                            [(ngModel)]="selectedCountry99">
+                <ngx-select #ngxSelectForControls placeholder="Select Country" [showArrow]="showArrowButton"
+                    [rotateArrow]="rotateArrowButton" [closeOutsideClick]="closeOnOutsideClick" [width]="width"
+                    [maxHeight]="height" [(ngModel)]="selectedCountry99">
                     <ngx-select-option [value]="null">-None-</ngx-select-option>
                     <ngx-select-option *ngFor="let item of countries" [value]="item">
                         {{item.name}}

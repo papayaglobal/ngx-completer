@@ -598,6 +598,11 @@ export class NgxSelectComponent
           ? this.ngControl.value
           : this.preSelectedItem || this._value
       );
+
+
+      if (this.preSelectedItem) {
+        this.propagateChanges(null, this.preSelectedItem);
+      }
     });
   }
 
