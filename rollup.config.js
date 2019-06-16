@@ -1,5 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import sourcemaps from 'rollup-plugin-sourcemaps';
+import commonjs from 'rollup-plugin-commonjs';
 
 
 /**
@@ -70,7 +71,16 @@ export default {
     external: Object.keys(globals),
     plugins: [
         resolve(),
-        sourcemaps()
+        sourcemaps(),
+        commonjs({
+            namedExports: {
+                'node_modules/lodash/lodash.js': [
+                    'isEqual',
+                    'isNil',
+                    'noop'
+                ]
+            }
+        })
     ],
     output: {
         format: 'umd',
