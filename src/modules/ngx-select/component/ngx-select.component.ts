@@ -36,8 +36,9 @@ import {
 import { ControlValueAccessor, NgControl } from "@angular/forms";
 import { Observable, Subject, merge, defer } from "rxjs";
 import { switchMap, startWith, takeUntil, filter, take } from "rxjs/operators";
+import { isEqual, isNil, noop } from "lodash";
 
-import { isNill, noop, parseNumber, compare } from "../../../common/common";
+import { parseNumber } from "../../../common/common";
 import { NgxSelectModel } from "./ngx-select-model";
 import {
   NgxOptionSelectionChange,
@@ -351,7 +352,7 @@ export class NgxSelectComponent
 
   private findOptionByValue(value: any): NgxSelectOptionComponent | undefined {
     return this.options.find((option: NgxSelectOptionComponent) => {
-      return !isNill(option.value) && compare(option.value, value);
+      return !isNil(option.value) && isEqual(option.value, value);
     });
   }
 
@@ -378,7 +379,7 @@ export class NgxSelectComponent
   private onSelect(option: NgxSelectOptionComponent): void {
     const previousValue = this.selected ? this.selected.value : null;
     const newValue = option.value;
-    const isEmptyValue = isNill(newValue);
+    const isEmptyValue = isNil(newValue);
 
     this.clearSelection(isEmptyValue ? undefined : option);
 
